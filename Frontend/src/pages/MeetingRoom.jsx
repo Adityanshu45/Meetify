@@ -307,6 +307,10 @@ function MeetingRoom() {
           ...prevMessages,
           { sender: sender, data: data, socketId: senderSocketId },
         ]);
+
+        return () => {
+          socket.off("chat-message");
+        };
       });
 
       //user-joined
