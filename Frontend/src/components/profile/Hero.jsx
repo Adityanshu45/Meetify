@@ -15,7 +15,7 @@ function Hero() {
       </div>
       <div className={style.profileData}>
         <div className={style.about}>
-          <h1>Aditya chaudhary</h1>
+          <h1>{user?.fullName || " "}</h1>
         </div>
         <div className={style.contectDetails}>
           <div className={style.email}>
