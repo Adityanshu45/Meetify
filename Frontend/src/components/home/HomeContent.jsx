@@ -239,8 +239,8 @@ function HomeContent() {
           <div className={style.profileDetails}>
             <div className={style.profileLogo}>A</div>
             <div className={style.profileData}>
-              <h1>Aditya</h1>
-              <p>anshuverma2420019@gmail.com</p>
+              <h1>{user?.fullName}</h1>
+              <p>{user?.email}</p>
             </div>
             <div className={style.profileStats}>
               <div className={style.profileStatsList}>

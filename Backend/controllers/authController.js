@@ -102,7 +102,7 @@ async function loginUser(req, res) {
     res.cookie("refreshToken", refreshToken, {
       httpOnly: true,
       secure: config.NODE_ENV === "production",
-      sameSite: "strict",
+      sameSite: "none",
       maxAge: 15 * 24 * 60 * 60 * 1000,
     });
 
@@ -178,7 +178,7 @@ async function logout(req, res) {
     res.clearCookie("refreshToken", {
       httpOnly: true,
       secure: config.NODE_ENV === "production",
-      sameSite: "strict",
+      sameSite: "none",
     });
 
     return res.status(200).json({
