@@ -1,0 +1,104 @@
+.stats {
+  background-color: #0c1020;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 24px;
+  padding: 24px;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 800px;
+}
+
+.info {
+  margin-bottom: 24px;
+}
+
+.info h1 {
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: -0.3px;
+}
+
+/* 4 boxes ke liye 2x2 Grid Layout */
+.data {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+/* Charo boxes par ek sath style apply kiya gaya hai */
+.meetings,
+.callTime,
+.meetingsThisMonth,
+.totalHostedMeetings {
+  background-color: #1a1b3a;
+  border: 1px solid transparent;
+  border-radius: 16px;
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transition:
+    transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.25s ease,
+    background-color 0.25s ease,
+    border-color 0.25s ease;
+  cursor: pointer;
+}
+
+/* Charo boxes ka Hover effect */
+.meetings:hover,
+.callTime:hover,
+.meetingsThisMonth:hover,
+.totalHostedMeetings:hover {
+  transform: translateY(-4px) scale(1.02);
+  background-color: #1e1f45;
+  border-color: rgba(99, 102, 241, 0.3);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4);
+}
+
+/* Headings (Numbers) */
+.meetings h1,
+.callTime h1,
+.meetingsThisMonth h1,
+.totalHostedMeetings h1 {
+  color: #5d5fef;
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0 0 8px 0;
+}
+
+/* Paragraph (Labels) */
+.meetings p,
+.callTime p,
+.meetingsThisMonth p,
+.totalHostedMeetings p {
+  color: #94a3b8;
+  font-size: 15px;
+  font-weight: 500;
+  margin: 0;
+}
+
+/* Tablet & Mobile Responsiveness */
+@media (max-width: 768px) {
+  .stats {
+    padding: 20px;
+    border-radius: 20px;
+  }
+
+  .data {
+    /* Mobile me 1 column (ek ke neeche ek) kar dega */
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .meetings,
+  .callTime,
+  .meetingsThisMonth,
+  .totalHostedMeetings {
+    padding: 20px 16px;
+  }
+}

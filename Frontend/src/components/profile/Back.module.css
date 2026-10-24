@@ -1,0 +1,48 @@
+.Back {
+  width: 100%;
+  display: block;
+  max-width: 800px;
+  margin-top: 3rem;
+}
+
+.Back a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  padding: 16px;
+  box-sizing: border-box;
+  background-color: transparent;
+  border: 1px solid rgba(93, 95, 239, 0.4);
+  border-radius: 20px;
+  color: #5d5fef;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.Back a::before {
+  content: "\f060";
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  font-size: 15px;
+}
+
+.Back a:hover {
+  background-color: rgba(93, 95, 239, 0.08);
+  border-color: rgba(93, 95, 239, 0.8);
+  transform: translateY(-2px) scale(1.01);
+  box-shadow: 0 8px 20px rgba(93, 95, 239, 0.15);
+}
+
+@media (max-width: 768px) {
+  .Back a {
+    padding: 14px;
+    font-size: 15px;
+    border-radius: 16px;
+  }
+}

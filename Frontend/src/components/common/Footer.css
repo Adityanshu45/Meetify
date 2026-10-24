@@ -1,0 +1,22 @@
+.footer {
+  background-color: black;
+  padding: 2.5rem 0rem;
+  width: 100%;
+  margin-top: auto;
+}
+
+.footer .footer-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.15rem;
+  font-style: 1.15rem;
+  line-height: 0rem;
+  color: white;
+}
+
+.footer P {
+  text-align: center;
+  font-size: 1rem;
+  color: lightgrey;
+}

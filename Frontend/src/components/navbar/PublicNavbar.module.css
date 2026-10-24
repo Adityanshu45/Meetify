@@ -1,0 +1,75 @@
+.publicNavbar {
+  padding: 0rem 3rem 0rem 3rem;
+  height: 4rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: #0b0b12;
+  backdrop-filter: blur(12px);
+}
+
+.navbarLogo {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  gap: 0.8rem;
+  cursor: pointer;
+}
+
+.navbarLogo h3 {
+  margin: 0rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+/* text colour */
+.gradientText {
+  background: linear-gradient(135deg, #6a5af9, #8e2de2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.login {
+  text-decoration: none;
+  margin-right: 1rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.95rem;
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.login:hover {
+  background: #1f1f24;
+  color: white;
+  border-radius: 10px;
+}
+
+.signUp {
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #6a5af9, #7b27c5);
+  color: white;
+  cursor: pointer;
+}
+
+.signUp:hover {
+  background: linear-gradient(135deg, #473aba, #6315a7);
+}
+
+@media (max-width: 600px) {
+  .navbar .publicNavbar {
+    padding: 0rem 0.75rem 0rem 0.75rem;
+  }
+
+  .navbarLogo {
+    gap: 0.4rem;
+  }
+  .login {
+    margin-right: 0.4rem;
+  }
+}

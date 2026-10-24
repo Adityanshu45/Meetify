@@ -1,0 +1,39 @@
+.create-account {
+  padding: 7rem 3rem;
+  text-align: center;
+  background: linear-gradient(180deg, black, #2b1142, black);
+}
+
+.create-account h1 {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: white;
+  margin-bottom: 2.5rem;
+}
+
+.create-account p {
+  font-size: 1.25rem;
+  color: white;
+  opacity: 0.9;
+  margin-bottom: 3rem;
+}
+
+.create-account .signUp-btn {
+  text-decoration: none;
+  padding: 0.7rem 2rem;
+  font-size: 1rem;
+  font-weight: 700;
+  background-color: white;
+  border-radius: 0.5rem;
+}
+
+.create-account .signUp-btn:hover {
+  background: #0f0f12;
+  color: white;
+}
+
+@media (max-width: 600px) {
+  .create-account {
+    padding: 7rem 0.75rem;
+  }
+}

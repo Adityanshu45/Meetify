@@ -1,0 +1,180 @@
+.profileHero {
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+  background-color: #0c1020;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 24px;
+  overflow: hidden;
+  box-sizing: border-box;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: #ffffff;
+  width: 100%;
+  max-width: 800px;
+}
+
+.profileBgColor {
+  height: 150px;
+  background: linear-gradient(90deg, #4f46e5 0%, #a855f7 50%, #ec4899 100%);
+}
+
+.profileLogoAndEdit {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 0 32px;
+  position: relative;
+}
+
+.logo {
+  width: 96px;
+  height: 96px;
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  color: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 38px;
+  font-weight: 700;
+  border: 5px solid #0c1020;
+  margin-top: -48px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.editProfile {
+  margin-top: 16px;
+}
+
+.editProfile a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 8px 18px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.04);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.editProfile a::before {
+  content: "\f304";
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  font-size: 13px;
+}
+
+.editProfile a:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.6);
+  transform: translateY(-1px);
+}
+
+.profileData {
+  padding: 20px 32px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.about h1 {
+  font-size: 26px;
+  font-weight: 700;
+  margin: 0 0 8px 0;
+  color: #ffffff;
+  letter-spacing: -0.3px;
+}
+
+.about p {
+  font-size: 14px;
+  color: #94a3b8;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.contectDetails {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.email,
+.Phone {
+  background-color: #12172b;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  border-radius: 16px;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  box-sizing: border-box;
+}
+
+.email i,
+.Phone i {
+  font-size: 16px;
+  color: #6366f1;
+  width: 20px;
+  display: flex;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.emailId,
+.PhoneNo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.emailId h1,
+.PhoneNo h1 {
+  font-size: 12px;
+  font-weight: 500;
+  color: #64748b;
+  margin: 0;
+  text-transform: capitalize;
+}
+
+.emailId p,
+.PhoneNo p {
+  font-size: 14px;
+  font-weight: 500;
+  color: #f1f5f9;
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .profileBgColor {
+    height: 120px;
+  }
+
+  .profileLogoAndEdit {
+    padding: 0 20px;
+  }
+
+  .profileData {
+    padding: 16px 20px 24px;
+    gap: 20px;
+  }
+
+  .logo {
+    width: 80px;
+    height: 80px;
+    font-size: 30px;
+    margin-top: -40px;
+  }
+
+  .contectDetails {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}

@@ -1,0 +1,1141 @@
+.preJoinContainer {
+  --bg: #05050f;
+  --card: #0b0a15;
+  --card-border: rgba(255, 255, 255, 0.08);
+  --field: #1a1725;
+  --field-border: rgba(255, 255, 255, 0.09);
+  --text: #ffffff;
+  --muted: #8b93b5;
+  --label: #7d84a6;
+  --purple: #7c2cff;
+  --purple-2: #8f3bff;
+  --green: #12d68f;
+  --red: #ff5d6c;
+
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding: 40px 24px 56px;
+  color: var(--text);
+  background:
+    radial-gradient(
+      ellipse 60% 85% at 50% 50%,
+      rgba(124, 44, 255, 0.16),
+      transparent 70%
+    ),
+    var(--bg);
+}
+
+.preJoinContainer *,
+.preJoinContainer *::before,
+.preJoinContainer *::after {
+  box-sizing: border-box;
+}
+
+/* ---------- Heading ---------- */
+
+.preJoinHeading {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.heading {
+  margin: 0 0 8px;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+.para {
+  margin: 0;
+  font-size: 1rem;
+  color: var(--muted);
+}
+
+/* ---------- Two-column layout ---------- */
+
+.preJoinAction {
+  display: grid;
+  grid-template-columns: minmax(0, 1.43fr) minmax(0, 1fr);
+  gap: 50px;
+  align-items: start;
+  max-width: 1050px;
+  margin: 0 auto;
+}
+
+/* ---------- Left: preview card ---------- */
+
+.preJoinPreview {
+  position: relative;
+  min-height: 362px;
+  padding: 0 24px 96px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 22px;
+}
+
+.previewVideo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scaleX(-1); /* mirror, like a real mirror */
+  background: #000;
+}
+
+.previewVideo.hidden {
+  display: none;
+}
+
+.statusRow {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 2;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 13px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  border-radius: 999px;
+  border: 1px solid;
+  backdrop-filter: blur(6px);
+}
+
+.badge i {
+  font-size: 0.78rem;
+}
+
+.badgeOn {
+  color: var(--green);
+  background: rgba(18, 214, 143, 0.1);
+  border-color: rgba(18, 214, 143, 0.28);
+}
+
+.badgeOff {
+  color: var(--red);
+  background: rgba(255, 93, 108, 0.1);
+  border-color: rgba(255, 93, 108, 0.3);
+}
+
+/* avatar (shown when camera is off) */
+
+.avatarBox {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-top: 56px;
+}
+
+.avatar {
+  width: 120px;
+  height: 120px;
+  display: grid;
+  place-items: center;
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #fff;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #8b5cf6, #4f46e5);
+  box-shadow:
+    0 0 0 6px rgba(124, 44, 255, 0.18),
+    0 0 40px rgba(124, 44, 255, 0.35);
+}
+
+.avatarName {
+  margin: 18px 0 4px;
+  max-width: 100%;
+  font-size: 1.3rem;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.avatarHint {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+/* round control buttons */
+
+.preJoinControls {
+  position: absolute;
+  left: 50%;
+  bottom: 22px;
+  z-index: 2;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 14px;
+}
+
+.videoControl,
+.audioControl {
+  width: 54px;
+  height: 54px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  font-size: 1.05rem;
+  color: #e9ebfa;
+  cursor: pointer;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: #16141f;
+  transition:
+    background 0.2s,
+    border-color 0.2s,
+    transform 0.15s;
+}
+
+.videoControl:hover,
+.audioControl:hover,
+.settingsControl:hover {
+  background: #201d2d;
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
+.videoControl:active,
+.audioControl:active,
+.settingsControl:active {
+  transform: scale(0.94);
+}
+
+/* off state (add styles.off on the button when muted / camera off) */
+.off {
+  background: #e7000cd8;
+  border-color: rgba(255, 93, 108, 0.4);
+}
+
+.videoTrue,
+.audioTrue {
+  color: #e9ebfa;
+}
+
+.videoFalse,
+.audioFalse {
+  color: white;
+}
+
+/* ---------- Right: join form card ---------- */
+
+.preJoinForm {
+  padding: 28px 30px 30px;
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 22px;
+}
+
+.hedding {
+  margin: 0 0 6px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  margin-bottom: 20px;
+}
+
+.inputGroup label {
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--label);
+}
+
+.inputGroup input {
+  width: 100%;
+  height: 54px;
+  padding: 0 16px;
+  font: inherit;
+  font-size: 0.82rem;
+  color: var(--text);
+  background: var(--field);
+  border: 1px solid var(--field-border);
+  border-radius: 14px;
+  outline: none;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
+}
+
+.inputGroup input::placeholder {
+  color: #5d6384;
+}
+
+.inputGroup input:focus {
+  border-color: var(--purple-2);
+  box-shadow: 0 0 0 3px rgba(124, 44, 255, 0.25);
+}
+
+/* info note */
+
+.info {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin: 6px 0 22px;
+  padding: 14px 16px;
+  color: #5f6685;
+  background: rgba(255, 255, 255, 0.015);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 14px;
+}
+
+.info i {
+  margin-top: 3px;
+  font-size: 0.95rem;
+}
+
+.info p {
+  margin: 0;
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
+/* buttons */
+
+.joinBtn,
+.newMeetingBtn {
+  width: 100%;
+  height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font: inherit;
+  font-size: 1.02rem;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 14px;
+  transition:
+    transform 0.15s,
+    box-shadow 0.2s,
+    background 0.2s,
+    border-color 0.2s;
+}
+
+.joinBtn {
+  color: #fff;
+  border: none;
+  background: linear-gradient(90deg, var(--purple), var(--purple-2));
+  box-shadow: 0 10px 28px rgba(124, 44, 255, 0.35);
+}
+
+.joinBtn:hover {
+  box-shadow: 0 12px 34px rgba(124, 44, 255, 0.5);
+  transform: translateY(-1px);
+}
+
+.joinBtn:active {
+  transform: translateY(0);
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* keyboard focus */
+
+.joinBtn:focus-visible,
+.newMeetingBtn:focus-visible,
+.videoControl:focus-visible,
+.audioControl:focus-visible,
+.settingsControl:focus-visible {
+  outline: 2px solid var(--purple-2);
+  outline-offset: 3px;
+}
+
+/* notifications of user join and left */
+.notificationBadge {
+  position: absolute;
+  bottom: 100px; /* Controls bar ke thoda upar */
+  left: 20px;
+  background-color: rgba(32, 33, 36, 0.9);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  animation: fadeInOut 3s ease-in-out;
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  10% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  90% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+
+/* --------------------Responsive-------------------- */
+/* tablet: stack the two cards */
+@media (max-width: 900px) {
+  .preJoinContainer {
+    padding: 32px 18px 48px;
+  }
+
+  .preJoinHeading {
+    margin-bottom: 28px;
+  }
+
+  .preJoinAction {
+    grid-template-columns: 1fr;
+    max-width: 560px;
+    gap: 20px;
+  }
+
+  .preJoinPreview {
+    min-height: 330px;
+  }
+}
+
+/* --------------phone ---------------------*/
+@media (max-width: 520px) {
+  .preJoinContainer {
+    padding: 24px 14px 40px;
+  }
+
+  .preJoinPreview {
+    min-height: 300px;
+    padding-bottom: 90px;
+    border-radius: 18px;
+  }
+
+  .statusRow {
+    top: 12px;
+    left: 12px;
+    gap: 8px;
+  }
+
+  .badge {
+    padding: 5px 11px;
+    font-size: 0.8rem;
+  }
+
+  .avatarBox {
+    padding-top: 48px;
+  }
+
+  .avatar {
+    width: 96px;
+    height: 96px;
+    font-size: 2rem;
+  }
+
+  .avatarName {
+    font-size: 1.15rem;
+  }
+
+  .videoControl,
+  .audioControl,
+  .settingsControl {
+    width: 48px;
+    height: 48px;
+  }
+
+  .preJoinForm {
+    padding: 22px 18px 24px;
+    border-radius: 18px;
+  }
+
+  .inputGroup input,
+  .joinBtn,
+  .newMeetingBtn {
+    height: 50px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .preJoinContainer * {
+    transition: none !important;
+  }
+}
+
+/*============================================ Post join css ==========================================*/
+
+/* ---------- Color tokens ---------- */
+.conferenceView,
+.chatSidebar,
+.inCallControlsBar {
+  --bg: #08081a;
+  --tile: #0d0d22;
+  --surface: #0f0f1e;
+  --surface-2: #171730;
+  --btn: #1f1f3d;
+  --btn-hover: #2a2a52;
+  --border: rgba(255, 255, 255, 0.08);
+  --text: #ffffff;
+  --muted: #8b8fb8;
+  --primary: #7c3aed;
+  --primary-2: #9333ea;
+  --danger: #ff4757;
+}
+
+.conferenceView {
+  --edge: 20px;
+  --pad: 20px;
+  --gap: 14px;
+  --thumb-w: 240px;
+  --chat-w: 360px;
+
+  position: fixed;
+  inset: 0;
+  box-sizing: border-box;
+  padding: var(--edge) var(--pad) 110px var(--edge);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  align-content: safe center;
+  gap: var(--gap);
+  overflow-y: auto;
+  color: var(--text);
+  background:
+    radial-gradient(
+      ellipse 70% 55% at 50% 105%,
+      rgba(99, 40, 220, 0.3),
+      transparent 70%
+    ),
+    var(--bg);
+}
+
+.conferenceView:has(~ .chatSidebar) {
+  --pad: calc(var(--chat-w) + 20px);
+}
+
+/* ------------------VIDEO TILE-------------------*/
+.videoWrapper {
+  position: relative;
+  flex: 1 1 420px;
+  min-width: 0;
+  max-width: 1000px;
+  aspect-ratio: 16 / 9;
+  border-radius: 22px;
+  overflow: hidden;
+  cursor: pointer;
+  background: linear-gradient(160deg, var(--tile) 0%, #07071a 100%);
+  border: 1px solid var(--border);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
+}
+
+.videoWrapper:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.videoWrapper video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  background: #05050f;
+}
+
+.meetUserVideo {
+  transform: scaleX(-1);
+}
+
+.meetUserVideo.noMirror {
+  transform: none;
+}
+
+/* screen share wala tile: poori screen dikhe, crop na ho */
+.screenTile video {
+  object-fit: contain;
+  background: #000000;
+}
+
+/* pin kiya hua tile */
+.pinnedTile {
+  border-color: var(--primary);
+  box-shadow:
+    0 0 0 2px rgba(124, 58, 237, 0.45),
+    0 12px 40px rgba(0, 0, 0, 0.35);
+}
+
+.nameLabel {
+  position: absolute;
+  left: 14px;
+  bottom: 14px;
+  z-index: 2;
+  max-width: calc(100% - 28px);
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(8, 8, 26, 0.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--border);
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* pin icon: hover par dikhe, pin ho to hamesha dikhe */
+.pinHint {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 2;
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  font-size: 13px;
+  color: #ffffff;
+  background: rgba(8, 8, 26, 0.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--border);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+}
+
+.videoWrapper:hover .pinHint {
+  opacity: 1;
+}
+
+.pinnedTile .pinHint {
+  opacity: 1;
+  background: var(--primary);
+  border-color: var(--primary);
+}
+
+/* screen share ko pin ka option nahi chahiye */
+.screenTile .pinHint {
+  display: none;
+}
+
+.conferenceView.presenting {
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-content: flex-start;
+  align-items: flex-end;
+  overflow-x: hidden;
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+
+.conferenceView.presenting .videoWrapper {
+  flex: 0 0 auto;
+  width: var(--thumb-w);
+  max-width: none;
+  aspect-ratio: 16 / 9;
+  border-radius: 14px;
+}
+
+/* presenter = big tile */
+.conferenceView.presenting .presenterTile {
+  position: fixed;
+  z-index: 1;
+  top: var(--edge);
+  left: var(--edge);
+  right: calc(var(--pad) + var(--thumb-w) + var(--gap));
+  bottom: 110px;
+  width: auto;
+  aspect-ratio: auto;
+  border-radius: 20px;
+}
+
+.conferenceView.presenting .presenterTile:only-child {
+  right: var(--pad);
+}
+
+/* -----------------CHAT SIDEBAR-------------------- */
+.chatSidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 30;
+  width: 360px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  background: #0b0b1a;
+  border-left: 1px solid var(--border);
+  color: var(--text);
+}
+
+.chatHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 18px;
+  border-bottom: 1px solid var(--border);
+}
+
+.chatHeader h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.chatHeader .closeChatBtn {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  color: #ffffff;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  font-size: 16px;
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    border-color 0.2s;
+}
+
+.chatHeader .closeChatBtn i {
+  color: #ffffff;
+}
+
+.chatHeader .closeChatBtn:hover {
+  background: var(--danger);
+  border-color: var(--danger);
+}
+
+.chatArea {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+  overflow-y: auto;
+}
+
+.myMsgBox,
+.otherMsgBox {
+  display: flex;
+  flex-direction: column;
+  max-width: 85%;
+}
+
+.myMsgBox {
+  align-self: flex-end;
+  align-items: flex-end;
+}
+
+.otherMsgBox {
+  align-self: flex-start;
+  align-items: flex-start;
+}
+
+.msgSender {
+  margin-bottom: 4px;
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.myMsgBubble,
+.otherMsgBubble {
+  padding: 9px 14px;
+  font-size: 14px;
+  line-height: 1.45;
+  word-break: break-word;
+  color: var(--text);
+}
+
+.myMsgBubble {
+  background: linear-gradient(135deg, var(--primary), var(--primary-2));
+  border-radius: 16px 16px 4px 16px;
+}
+
+.otherMsgBubble {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 16px 16px 16px 4px;
+}
+
+.chatInputBox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 16px;
+  border-top: 1px solid var(--border);
+}
+
+.chatInputBox input {
+  flex: 1;
+  min-width: 0;
+  padding: 11px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  font-size: 14px;
+  outline: none;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
+}
+
+.chatInputBox input::placeholder {
+  color: var(--muted);
+}
+
+.chatInputBox input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.25);
+}
+
+.chatInputBox button {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  border: none;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary), var(--primary-2));
+  color: #fff;
+  font-size: 15px;
+  cursor: pointer;
+  transition:
+    transform 0.15s,
+    box-shadow 0.2s;
+}
+
+.chatInputBox button:hover {
+  transform: scale(1.06);
+  box-shadow: 0 6px 18px rgba(124, 58, 237, 0.45);
+}
+
+/* -------------------------CONTROLS BAR----------------------*/
+.inCallControlsBar {
+  position: fixed;
+  left: 50%;
+  bottom: 22px;
+  transform: translateX(-50%);
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: rgba(14, 14, 32, 0.92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 12px 34px rgba(0, 0, 0, 0.5);
+}
+
+.conferenceView:has(~ .chatSidebar) ~ .inCallControlsBar {
+  left: calc((100% - 360px) / 2);
+}
+
+.inCallControlsBar .audioControl,
+.inCallControlsBar .videoControl {
+  width: 50px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: var(--btn);
+  color: var(--text);
+  font-size: 18px;
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    border-color 0.2s,
+    transform 0.15s;
+}
+
+.inCallControlsBar .audioControl:hover,
+.inCallControlsBar .videoControl:hover {
+  background: var(--btn-hover);
+  transform: translateY(-2px);
+}
+
+.inCallControlsBar .audioTrue,
+.inCallControlsBar .videoTrue {
+  color: #ffffff;
+}
+
+/* mic / camera OFF = red tint */
+.inCallControlsBar .off {
+  background: rgba(255, 71, 87, 0.16);
+  border-color: rgba(255, 71, 87, 0.6);
+}
+
+.inCallControlsBar .off:hover {
+  background: rgba(255, 71, 87, 0.26);
+}
+
+.inCallControlsBar .audioFalse,
+.inCallControlsBar .videoFalse {
+  color: var(--danger);
+}
+
+/* screen share / chat active - purple */
+.inCallControlsBar .activeScreenShare {
+  background: rgba(124, 58, 237, 0.3);
+  border-color: var(--primary);
+}
+
+.inCallControlsBar .activeScreenShare [class*="fa-message"] {
+  color: #d8c8ff !important;
+}
+
+.endCallBtn {
+  width: 64px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: none;
+  border-radius: 999px;
+  background: var(--danger);
+  color: #ffffff;
+  font-size: 18px;
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    transform 0.15s;
+}
+
+.endCallBtn:hover {
+  background: #e63946;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 900px) {
+  .conferenceView {
+    --thumb-w: 170px;
+    --chat-w: 300px;
+  }
+
+  .chatSidebar {
+    width: 300px;
+  }
+
+  .conferenceView:has(~ .chatSidebar) ~ .inCallControlsBar {
+    left: calc((100% - 300px) / 2);
+  }
+}
+
+@media (max-width: 768px) {
+  .conferenceView,
+  .conferenceView:has(~ .chatSidebar) {
+    --edge: 12px;
+    --pad: 12px;
+    --gap: 10px;
+    padding: var(--edge) var(--pad)
+      calc(96px + env(safe-area-inset-bottom, 0px)) var(--edge);
+  }
+
+  .videoWrapper {
+    flex: 0 0 100%;
+    max-width: 100%;
+    aspect-ratio: 16 / 9;
+    max-height: calc(100vh - 150px);
+    max-height: calc(100dvh - 150px);
+    border-radius: 16px;
+  }
+
+  .nameLabel {
+    left: 8px;
+    bottom: 8px;
+    padding: 4px 10px;
+    font-size: 12px;
+  }
+
+  .pinHint {
+    top: 8px;
+    right: 8px;
+    width: 28px;
+    height: 28px;
+  }
+
+  .conferenceView.presenting {
+    --stage-h: 35dvh;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    overflow-x: auto;
+    overflow-y: auto;
+    padding-top: calc(var(--edge) + var(--stage-h) + var(--gap));
+  }
+
+  .conferenceView.presenting .videoWrapper {
+    flex: 0 0 auto;
+    width: 20rem;
+    max-width: none;
+    max-height: none;
+    aspect-ratio: 16 / 9;
+    border-radius: 12px;
+  }
+
+  /* bada tile upar */
+  .conferenceView.presenting .presenterTile,
+  .conferenceView.presenting .presenterTile:only-child {
+    top: var(--edge);
+    left: var(--edge);
+    width: calc(100% - 2.2rem) !important;
+    bottom: auto;
+    height: var(--stage-h);
+    border-radius: 16px;
+    margin-right: auto;
+    z-index: 2000;
+  }
+
+  .conferenceView.presenting .presenterTile:only-child {
+    bottom: calc(96px + env(safe-area-inset-bottom, 0px));
+    height: auto;
+  }
+
+  .chatSidebar {
+    top: auto;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 78vh;
+    height: 78dvh;
+    z-index: 50;
+    overflow: hidden;
+    border-left: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 22px 22px 0 0;
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+    box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.55);
+  }
+
+  .chatHeader {
+    position: relative;
+    flex-shrink: 0;
+    padding: 20px 16px 12px;
+  }
+
+  .chatHeader::before {
+    content: "";
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    width: 40px;
+    height: 4px;
+    margin-left: -20px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  .chatHeader .closeChatBtn {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+  }
+
+  .chatArea {
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .chatInputBox {
+    flex-shrink: 0;
+    padding: 12px 14px;
+  }
+
+  .chatInputBox input {
+    font-size: 16px;
+  }
+
+  /* controls bar */
+  .inCallControlsBar,
+  .conferenceView:has(~ .chatSidebar) ~ .inCallControlsBar {
+    left: 50%;
+    bottom: calc(14px + env(safe-area-inset-bottom, 0px));
+    gap: 10px;
+    padding: 8px 12px;
+  }
+
+  .inCallControlsBar .audioControl,
+  .inCallControlsBar .videoControl {
+    width: 44px;
+    height: 44px;
+    font-size: 16px;
+  }
+
+  .endCallBtn {
+    width: 56px;
+    height: 44px;
+  }
+}
+
+@media (max-width: 380px) {
+  .inCallControlsBar,
+  .conferenceView:has(~ .chatSidebar) ~ .inCallControlsBar {
+    gap: 8px;
+    padding: 8px 10px;
+  }
+
+  .inCallControlsBar .audioControl,
+  .inCallControlsBar .videoControl {
+    width: 40px;
+    height: 40px;
+  }
+
+  .endCallBtn {
+    width: 50px;
+    height: 40px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .videoWrapper,
+  .pinHint {
+    transition: none;
+  }
+}

@@ -1,0 +1,430 @@
+.scheduleContainer {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 24px;
+  min-height: calc(100vh - 74px);
+  padding: 5rem 7.5rem;
+  box-sizing: border-box;
+  background:
+    radial-gradient(
+      ellipse 60% 85% at 50% 50%,
+      rgba(124, 44, 255, 0.16),
+      transparent 70%
+    ),
+    #05050f;
+  color: #ffffff;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial,
+    sans-serif;
+}
+
+.scheduleCard,
+.sideCard {
+  background-color: #0d0d1f;
+  border-radius: 12px;
+  padding: 32px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+}
+
+.scheduleCard {
+  width: 100%;
+  max-width: 600px;
+}
+
+.rightSidebar {
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.sideCard {
+  padding: 24px;
+}
+
+.heading {
+  font-size: 1.5rem;
+  margin-top: 0;
+  margin-bottom: 24px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.subHeading {
+  font-size: 1.1rem;
+  margin-top: 0;
+  margin-bottom: 16px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.emptyState {
+  color: #8b949e;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.empty {
+  text-align: center;
+  color: #64748b;
+  padding: 16px 0;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.inputGroup label {
+  font-size: 0.85rem;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #e2e8f0;
+}
+
+.inputGroup input {
+  background-color: #1a1d27;
+  border: 1px solid #232736;
+  color: #ffffff;
+  padding: 14px 16px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.inputGroup input:focus {
+  border-color: #9d4edd;
+  box-shadow: 0 0 0 1px #9d4edd;
+}
+
+.inputGroup input::placeholder {
+  color: #64748b;
+}
+
+.row {
+  display: flex;
+  gap: 16px;
+}
+
+.row .inputGroup:first-child {
+  flex: 1.5;
+}
+
+.row .inputGroup:last-child {
+  flex: 1;
+}
+
+.inputGroup input[type="date"]::-webkit-calendar-picker-indicator,
+.inputGroup input[type="time"]::-webkit-calendar-picker-indicator {
+  filter: invert(1) opacity(0.5);
+  cursor: pointer;
+}
+
+.errorMsg {
+  color: #ef4444;
+  font-size: 0.8rem;
+  margin-top: 6px;
+}
+
+.actionButtons {
+  display: flex;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.submitBtn {
+  flex: 1;
+  background: linear-gradient(135deg, #a855f7, #8b5cf6);
+  color: white;
+  border: none;
+  padding: 14px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
+  transition: all 0.3s ease;
+}
+
+.submitBtn:hover {
+  box-shadow: 0 0 30px rgba(139, 92, 246, 0.8);
+  transform: translateY(-2px);
+}
+
+.submitBtn:active {
+  transform: translateY(1px);
+  box-shadow: 0 0 15px rgba(139, 92, 246, 0.5);
+}
+
+.cancelBtn {
+  background-color: transparent;
+  color: #e2e8f0;
+  border: 1px solid #232736;
+  padding: 14px 28px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.cancelBtn:hover {
+  background-color: #1a1d27;
+}
+
+/* meetingList */
+
+.meetingsData {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.meetingList {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #11162a;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  padding: 16px 20px;
+  border-radius: 16px;
+  gap: 12px;
+  margin-bottom: 1rem;
+}
+
+.meetingListData {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.meetingListDataIcon {
+  width: 44px;
+  height: 44px;
+  background: #5d5fef;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.meetingListDataIcon::before {
+  content: "\f03d";
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  color: #ffffff;
+  font-size: 16px;
+}
+
+.meetingListDataDetails h1 {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 0 6px 0;
+  color: #f1f5f9;
+}
+
+.meetingListDataDetails p {
+  font-size: 13px;
+  color: #64748b;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  min-width: 180px;
+  gap: 6px;
+}
+
+.meetingListDataDetails p i {
+  font-size: 12px;
+}
+
+.meetingListLink a {
+  background-color: #4f46e5;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 8px 22px;
+  border-radius: 10px;
+  display: inline-block;
+  white-space: nowrap;
+  transition: background-color 0.2s;
+}
+
+.meetingListLink a:hover {
+  background-color: #4338ca;
+}
+
+/* calender */
+
+.customCalendarWrapper :global(.react-calendar) {
+  background: transparent;
+  border: none;
+  color: white;
+  width: 100%;
+  font-family: inherit;
+}
+
+.customCalendarWrapper :global(.react-calendar__navigation) {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.customCalendarWrapper :global(.react-calendar__navigation button) {
+  min-width: 30px;
+  background: transparent;
+  color: #8b949e;
+  font-size: 1.2rem;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.customCalendarWrapper :global(.react-calendar__navigation button:hover) {
+  color: #ffffff;
+}
+
+.customCalendarWrapper :global(.react-calendar__navigation__label) {
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 1rem;
+  pointer-events: none;
+}
+
+.customCalendarWrapper :global(.react-calendar__navigation__prev2-button),
+.customCalendarWrapper :global(.react-calendar__navigation__next2-button) {
+  display: none;
+}
+
+.customCalendarWrapper :global(.react-calendar__month-view__weekdays) {
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #8b949e;
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.customCalendarWrapper
+  :global(.react-calendar__month-view__weekdays__weekday abbr) {
+  text-decoration: none;
+}
+
+.customCalendarWrapper :global(.react-calendar__tile) {
+  background: transparent;
+  color: #94a3b8;
+  border: none;
+  outline: none;
+  padding: 12px 0;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: center;
+  border-radius: 20%;
+  transition: all 0.2s ease;
+  margin: 2px 0;
+}
+
+.customCalendarWrapper
+  :global(.react-calendar__month-view__days__day--neighboringMonth) {
+  color: #334155;
+}
+
+.customCalendarWrapper :global(.react-calendar__tile--now) {
+  background: transparent;
+  color: #ffffff;
+}
+
+.customCalendarWrapper :global(.react-calendar__tile:enabled:hover),
+.customCalendarWrapper :global(.react-calendar__tile:enabled:focus) {
+  background: rgba(139, 92, 246, 0.15);
+  color: #ffffff;
+}
+
+.customCalendarWrapper :global(.react-calendar__tile--active),
+.customCalendarWrapper :global(.react-calendar__tile--active:enabled:hover),
+.customCalendarWrapper :global(.react-calendar__tile--active:enabled:focus) {
+  background: rgb(139, 92, 246);
+  color: #ffffff;
+  font-weight: 700;
+  box-shadow: 0 0 15px rgba(139, 92, 246, 0.6);
+}
+
+@media (max-width: 1024px) {
+  .scheduleContainer {
+    padding: 4rem 3rem;
+  }
+}
+
+@media (max-width: 850px) {
+  .scheduleContainer {
+    flex-direction: column;
+    align-items: center;
+    padding: 3rem 2rem;
+  }
+
+  .rightSidebar {
+    max-width: 600px;
+  }
+  .meetingList {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .meetingListLink {
+    width: 100%;
+  }
+
+  .meetingListLink a {
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+  }
+}
+
+@media (max-width: 600px) {
+  .scheduleContainer {
+    padding: 2rem 1.5rem;
+  }
+
+  .scheduleCard,
+  .sideCard {
+    padding: 24px;
+  }
+
+  .row {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .row .inputGroup {
+    margin-bottom: 20px;
+  }
+
+  .actionButtons {
+    flex-direction: column;
+  }
+
+  .cancelBtn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 400px) {
+  .scheduleContainer {
+    padding: 1.5rem 1rem;
+  }
+
+  .heading {
+    font-size: 1.3rem;
+  }
+}
