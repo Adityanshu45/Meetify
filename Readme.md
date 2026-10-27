@@ -170,7 +170,6 @@ NODE_ENV=production
 MONGO_URI=your_mongodb_connection_string
 JWT_ACCESS_SECRET=your_access_secret
 JWT_REFRESH_SECRET=your_refresh_secret
-FRONTEND_URL=https://meetify-azure.vercel.app
 ```
 
 Create a `.env` file in the **Frontend**:
@@ -196,7 +195,6 @@ _(Note: Ensure you replace the dummy Render URLs above with your actual backend 
 
 ## 🏗️ Future Improvements
 
-- [ ] Screen sharing capabilities
 - [ ] In-meeting recording feature
 - [ ] Interactive whiteboard
 
