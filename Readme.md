@@ -1,4 +1,3 @@
-````markdown
 # 📹 Meetify — Real-Time Video Conferencing Application
 
 **Live Demo:** https://meetify-azure.vercel.app/
@@ -120,13 +119,11 @@ Running daily at 3:00 AM to optimize database performance:
 ```http
 GET /api/meeting/scheduledmeetings?hostId={userId}&limit=10
 ```
-````
 
 **Get Past Meetings**
 
 ```http
 GET /api/meeting/pastmeetings?userId={userId}&limit=10
-
 ```
 
 ### Key Socket Events
@@ -141,9 +138,8 @@ GET /api/meeting/pastmeetings?userId={userId}&limit=10
 ## ⚙️ Installation
 
 ```bash
-git clone [https://github.com/Adityanshu45/Meetify](https://github.com/Adityanshu45/Meetify)
+git clone https://github.com/Adityanshu45/Meetify
 cd Meetify
-
 ```
 
 ### Backend Setup
@@ -152,7 +148,6 @@ cd Meetify
 cd backend
 npm install
 npm run dev
-
 ```
 
 ### Frontend Setup
@@ -161,7 +156,6 @@ npm run dev
 cd frontend
 npm install
 npm run dev
-
 ```
 
 ---
@@ -176,17 +170,17 @@ NODE_ENV=production
 MONGO_URI=your_mongodb_connection_string
 JWT_ACCESS_SECRET=your_access_secret
 JWT_REFRESH_SECRET=your_refresh_secret
-FRONTEND_URL=[https://meetify-azure.vercel.app](https://meetify-azure.vercel.app)
-
+FRONTEND_URL=https://meetify-azure.vercel.app
 ```
 
 Create a `.env` file in the **Frontend**:
 
 ```env
-VITE_API_BASE_URL=[https://your-backend-url.onrender.com/api](https://your-backend-url.onrender.com/api)
-VITE_SOCKET_URL=[https://your-backend-url.onrender.com](https://your-backend-url.onrender.com)
-
+VITE_API_BASE_URL=https://meetify-backend-yourid.onrender.com/api
+VITE_SOCKET_URL=https://meetify-backend-yourid.onrender.com
 ```
+
+_(Note: Ensure you replace the dummy Render URLs above with your actual backend URL)._
 
 ---
 
@@ -220,15 +214,9 @@ VITE_SOCKET_URL=[https://your-backend-url.onrender.com](https://your-backend-url
 
 ## 👤 Author
 
-**Aditya Chaudhary**
-
-BN College of Engineering and Technology, Lucknow
-
+**Aditya Chaudhary**  
+BN College of Engineering and Technology, Lucknow  
 CSE (AI & ML)
 
 - 📧 Email: adityanshu45@gmail.com
 - 🌐 GitHub: https://github.com/Adityanshu45
-
-```
-
-```
